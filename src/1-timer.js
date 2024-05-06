@@ -10,10 +10,10 @@ flatpickr("#datetime-picker", {
     dateFormat: "Y-m-d H:i",
 });
 
-   const test = iziToast.show({
-  title: 'Hey',
-message: 'What would you like to add?'
-    });
+//    const test = iziToast.show({
+//   title: 'Hey',
+// message: 'What would you like to add?'
+//     });
 
 
 const datetimePicker = document.getElementById("datetime-picker");
@@ -42,13 +42,16 @@ const options = {
   let userSelectedDate;
 startButton.disabled = true;
 
-flatpickr("#datepicker", {
-    onClose: function (selectedDates, dateStr, instans) {
+flatpickr("#datetime-picker", {
+    onClose: function (selectedDates, dateStr, instance) {
         userSelectedDate = selectedDates[0];
         const currentDate = new Date();
 
         if (userSelectedDate <= currentDate){
-            window.alert("Please choose a date in the future");
+            iziToast.error({
+                title: 'Error',
+                message : 'plese choose a date in the future',
+            })
             startButton.disabled = true;
         } else {
             startButton.disabled = false;
@@ -56,14 +59,19 @@ flatpickr("#datepicker", {
     }
 });
 
-startButton.addEventListener('click', function(){
+startButton.addEventListener('click', function() {
 const countdown = userSelectedDate - new Date();
 
-const timer =setInterval(updateCountdown, 1000);
-function updateCountdown() {
-    const remainingTime = countdown - new Date();
-}
+if (countdown <= 0) {
+    iziToast.error({
+        title: 'Error',
+        message : 'plese choose a date in the future',
+    });
+    return;
+ }
 })
+
+
 
 
   function convertMs(ms) {
