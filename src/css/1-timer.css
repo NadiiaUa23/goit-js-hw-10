@@ -1,0 +1,12 @@
+.tasck1 {}
+
+.timer {
+    display: flex;
+    flex-direction: row;
+}
+
+.field {}
+
+.value {}
+
+.label {}
