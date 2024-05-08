@@ -116,6 +116,23 @@ const timer = new CountdownTimer(
   '[data-seconds]'
 );
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//проби
 // import flatpickr from "flatpickr";
 // import "flatpickr/dist/flatpickr.min.css";
 // import iziToast from "izitoast";
