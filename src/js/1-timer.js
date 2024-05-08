@@ -62,6 +62,7 @@ class CountdownTimer {
     //апуск таймера зворотнього відліку до обраної дати.
     const selectedDate = new Date(this.datetimePicker._flatpickr.selectedDates[0]);
     this.startButton.disabled = true;
+    this.datetimePicker.disabled = true; // Інпут стає неактивним
     clearInterval(this.countdownInterval);
     this.countdownInterval = setInterval(() => {
       const now = new Date();
